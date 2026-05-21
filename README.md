@@ -48,13 +48,10 @@ To run the latency suite:
 ```
 
 ## Visual Profiling (macOS)
-The project specification requires visual evidence of performance. On macOS, use **Instruments**:
+On macOS, use **Instruments** for performance analysis:
 1. Open **Instruments.app**.
 2. Select the **Time Profiler** template.
 3. Target the `bench_latencies` executable.
 4. Record.
 5. In the bottom-right detail view, select **Call Tree** -> **Show Flame Graph**.
 *You will observe that nearly 90% of the time is spent in the matching loop, with almost no time spent in kernel syscalls or memory management.*
-
-## Project Narrative
-NanoMatch was built for the **IIT Guwahati Finance & Economics Club DIY '26 Series**. It demonstrates the transition from "Competitive Programming" C++ to "Systems Engineering" C++, where the goal is not just correctness, but the elimination of variance (jitter) and the maximization of hardware utilization.
