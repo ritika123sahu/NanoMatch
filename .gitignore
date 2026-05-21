@@ -1,0 +1,20 @@
+# Build artifacts
+build/
+bin/
+obj/
+
+# Large data files (Do not upload 1M order files)
+*.csv
+*.pcap
+orders.csv
+trades.csv
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+# Executables
+nanomatch
+bench_latencies
+bench_comparison
