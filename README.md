@@ -2,12 +2,12 @@
 
 NanoMatch is a high-performance Limit Order Book (LOB) built in C++20, designed for sub-microsecond execution. It prioritizes "Hardware Sympathy"—aligning software architecture with CPU cache hierarchies and memory management behaviors to achieve deterministic, ultra-low latency.
 
-## 🚀 Performance Snapshot (macOS M1/M2/M3)
+## Performance Snapshot (macOS M1/M2/M3)
 - **P50 Latency:** ~125 ns
 - **P99 Latency:** ~166 ns
 - **Throughput:** ~7M+ orders/sec (depending on matching density)
 
-## 🏗️ Architectural Core
+## Architectural Core
 
 ### 1. Zero-Allocation Hot Path
 Dynamic memory allocation (`malloc`/`new`) is a latency killer due to non-deterministic syscalls and heap fragmentation. NanoMatch uses a **pre-allocated Memory Pool** for all `Order` objects. 
@@ -28,7 +28,7 @@ To prevent I/O blocking the matching engine, trades are offloaded via a **Single
 - **ITCH 5.0 Parser:** Uses `mmap` to map binary market data files directly into the process address space. Data is parsed "in-place" without copying into intermediate buffers.
 - **Branch Prediction:** Critical paths use `[[likely]]` and `[[unlikely]]` hints to guide the CPU's branch predictor, minimizing pipeline stalls.
 
-## 🛠️ Build & Run
+## Build and Run
 
 ### Prerequisites
 - CMake 3.15+
@@ -47,8 +47,8 @@ To run the latency suite:
 ./bench_latencies
 ```
 
-## 📊 Visual Profiling (macOS)
-The PS requires "Flame Graphs." On macOS, use **Instruments**:
+## Visual Profiling (macOS)
+The project specification requires visual evidence of performance. On macOS, use **Instruments**:
 1. Open **Instruments.app**.
 2. Select the **Time Profiler** template.
 3. Target the `bench_latencies` executable.
@@ -56,7 +56,5 @@ The PS requires "Flame Graphs." On macOS, use **Instruments**:
 5. In the bottom-right detail view, select **Call Tree** -> **Show Flame Graph**.
 *You will observe that nearly 90% of the time is spent in the matching loop, with almost no time spent in kernel syscalls or memory management.*
 
-## 📜 Project Narrative
+## Project Narrative
 NanoMatch was built for the **IIT Guwahati Finance & Economics Club DIY '26 Series**. It demonstrates the transition from "Competitive Programming" C++ to "Systems Engineering" C++, where the goal is not just correctness, but the elimination of variance (jitter) and the maximization of hardware utilization.
-
-**Mentors:** Shubham Rane, Tanishq Kothari
