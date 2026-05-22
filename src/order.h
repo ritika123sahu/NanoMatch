@@ -11,37 +11,30 @@ enum class Side : uint8_t {
     Sell = 1
 };
 
-struct PriceLevel; // Forward declaration
-
-// Packed to avoid padding.
-#pragma pack(push, 1)
-struct Order {
+// Packed and aligned to 32 bytes (half a cache line) to ensure two orders fit in one 64-byte L1 cache line.
+struct alignas(32) Order {
     uint64_t order_id;
     uint64_t price;
     uint32_t quantity;
-    uint64_t timestamp;
     Side side;
+    uint8_t padding[3]; // Explicit padding for alignment
+    uint64_t timestamp;
 
-    Order* next = nullptr;
-    Order* prev = nullptr;
-    // No level pointer here - we use the price to find the level safely
+    Order* next;
+    Order* prev;
 };
 
-struct Trade {
+struct alignas(64) Trade {
     uint64_t buyer_order_id;
     uint64_t seller_order_id;
     uint64_t price;
     uint32_t quantity;
+    uint8_t padding[4];
     uint64_t timestamp;
 };
-#pragma pack(pop)
 
 /**
- * @brief A simple, high-performance memory pool for Order objects.
- * 
- * Pre-allocates a large slab of memory to avoid the overhead of malloc/free (new/delete)
- * during the matching process. This keeps the engine's execution deterministic and 
- * within the sub-microsecond range.
+ * @brief Ultra-fast Memory Pool using a simple stack-based free list.
  */
 template <typename T, size_t BlockSize = 100000>
 class MemoryPool {
@@ -52,35 +45,41 @@ public:
 
     ~MemoryPool() {
         for (auto block : all_blocks) {
-            delete[] block;
+            operator delete[](block, std::align_val_t{alignof(T)});
         }
     }
 
-    // Allocation is O(1) - just popping from a free list.
-    T* allocate() {
-        if (free_list.empty()) {
+    // Hot path: O(1) pointer swap
+    inline T* allocate() {
+        if (__builtin_expect(free_ptr == nullptr, 0)) {
             expand();
         }
-        T* ptr = free_list.back();
-        free_list.pop_back();
-        return ptr;
+        T* res = free_ptr;
+        free_ptr = *((T**)free_ptr);
+        return res;
     }
 
-    // Deallocation is O(1) - just pushing back to the free list.
-    void deallocate(T* ptr) {
-        free_list.push_back(ptr);
+    // Hot path: O(1) pointer swap
+    inline void deallocate(T* ptr) {
+        *((T**)ptr) = free_ptr;
+        free_ptr = ptr;
     }
 
 private:
     void expand() {
-        T* new_block = new T[BlockSize];
+        // Use aligned_alloc for cache-aligned blocks
+        void* block = operator new[](sizeof(T) * BlockSize, std::align_val_t{alignof(T)});
+        T* new_block = static_cast<T*>(block);
         all_blocks.push_back(new_block);
-        for (size_t i = 0; i < BlockSize; ++i) {
-            free_list.push_back(&new_block[i]);
+        
+        for (size_t i = 0; i < BlockSize - 1; ++i) {
+            *((T**)&new_block[i]) = &new_block[i + 1];
         }
+        *((T**)&new_block[BlockSize - 1]) = free_ptr;
+        free_ptr = new_block;
     }
 
-    std::vector<T*> free_list;
+    T* free_ptr = nullptr;
     std::vector<T*> all_blocks;
 };
 

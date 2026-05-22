@@ -22,7 +22,7 @@ void print_summary(const OrderBook& book) {
     std::cout << " [ASKS]" << std::endl;
     int count = 0;
     for (auto it = asks.begin(); it != asks.end() && count < 5; ++it, ++count) {
-        std::cout << "   " << std::setw(8) << it->price << " | " << it->total_quantity << std::endl;
+        std::cout << "   " << std::setw(8) << (*it)->price << " | " << (*it)->total_quantity << std::endl;
     }
     if (asks.empty()) std::cout << "   (Empty)" << std::endl;
 
@@ -30,7 +30,7 @@ void print_summary(const OrderBook& book) {
 
     count = 0;
     for (auto it = bids.begin(); it != bids.end() && count < 5; ++it, ++count) {
-        std::cout << "   " << std::setw(8) << it->price << " | " << it->total_quantity << std::endl;
+        std::cout << "   " << std::setw(8) << (*it)->price << " | " << (*it)->total_quantity << std::endl;
     }
     if (bids.empty()) std::cout << "   (Empty)" << std::endl;
     std::cout << " [BIDS]" << std::endl;

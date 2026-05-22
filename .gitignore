@@ -18,3 +18,8 @@ trades.csv
 nanomatch
 bench_latencies
 bench_comparison
+bench_baseline
+bench_optimized
+bench_baseline.dSYM/
+bench_optimized.dSYM/
+*.dSYM/

@@ -51,7 +51,14 @@ public:
         }
 
         if (quantity > 0) {
-            Order* o = new Order{id, price, quantity, 0, side};
+            Order* o = new Order;
+            o->order_id = id;
+            o->price = price;
+            o->quantity = quantity;
+            o->side = side;
+            o->timestamp = 0;
+            o->next = nullptr;
+            o->prev = nullptr;
             if (side == Side::Buy) bids[price].push_back(*o);
             else asks[price].push_back(*o);
             order_map[id] = o;

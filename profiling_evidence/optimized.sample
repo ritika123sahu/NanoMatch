@@ -1,0 +1,252 @@
+Analysis of sampling bench_optimized (pid 4524) every 1 millisecond
+Process:         bench_optimized [4524]
+Path:            /Users/USER/*/bench_optimized
+Load Address:    0x100ac8000
+Identifier:      bench_optimized
+Version:         ???
+Code Type:       ARM64
+Parent Process:  zsh [2216]
+Target Type:     live task
+
+Date/Time:       2026-05-22 23:30:21.368 +0530
+Launch Time:     2026-05-22 23:30:21.299 +0530
+OS Version:      macOS 26.5 (25F71)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         9.6G
+Physical footprint (peak):  9.7G
+Idle exit:                  untracked
+----
+
+Call graph:
+    405 Thread_107162: Main Thread
+    + 397 _dyld_start  (in dyld) + 0  [0x100ca49c0]
+    + 5 start  (in dyld) + 6904  [0x182497da8]
+    + ! 5 dyld4::start(dyld4::KernelArgs*, void*, void*, unsigned long long)::$_1::operator()() const  (in dyld) + 320  [0x18249844c]
+    + !   3 dyld4::prepare(dyld4::APIs&, mach_o::UnsafeHeader const*)  (in dyld) + 3692  [0x1824992d4]
+    + !   : 3 dyld4::RuntimeState::notifyDebuggerLoad(std::span<dyld4::Loader const*, 18446744073709551615ul> const&)  (in dyld) + 528  [0x1824a843c]
+    + !   :   3 dyld4::ExternallyViewableState::addImages(lsl::Allocator&, lsl::Allocator&, std::span<dyld4::ExternallyViewableState::ImageInfo, 18446744073709551615ul> const&)  (in dyld) + 1084  [0x1824b23bc]
+    + !   :     3 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 296  [0x1824b1c60]
+    + !   :       3 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x1824ee6f4]
+    + !   :         3 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 244  [0x1824ee368]
+    + !   :           3 mach_msg_overwrite  (in dyld) + 244  [0x182507a40]
+    + !   :             3 mach_msg2_internal  (in dyld) + 76  [0x182507898]
+    + !   :               3 mach_msg2_trap  (in dyld) + 8  [0x18247972c]
+    + !   1 dyld4::prepare(dyld4::APIs&, mach_o::UnsafeHeader const*)  (in dyld) + 508  [0x182498664]
+    + !   : 1 dyld4::JustInTimeLoader::makeLaunchLoader(Diagnostics&, dyld4::RuntimeState&)  (in dyld) + 136  [0x1824b9a74]
+    + !   :   1 dyld4::Loader::getOnDiskBinarySliceOffset(dyld4::RuntimeState&, dyld3::MachOFile const*, char const*)  (in dyld) + 256  [0x1824c3e7c]
+    + !   :     1 dyld4::SyscallDelegate::withReadOnlyMappedFile(Diagnostics&, char const*, bool, void (void const*, unsigned long, bool, dyld4::FileID const&, char const*, int) block_pointer) const  (in dyld) + 104  [0x18249554c]
+    + !   :       1 dyld4::SyscallDelegate::mapFileReadOnly(Diagnostics&, char const*, int*, unsigned long*, dyld4::FileID*, bool*, char*) const  (in dyld) + 108  [0x182495c1c]
+    + !   :         1 dyld3::open(char const*, int, int)  (in dyld) + 52  [0x1824d4bdc]
+    + !   :           1 open_with_subsystem  (in dyld) + 60  [0x1824f103c]
+    + !   :             1 open  (in dyld) + 40  [0x18247a664]
+    + !   :               1 __open  (in dyld) + 8  [0x18247df50]
+    + !   1 dyld4::prepare(dyld4::APIs&, mach_o::UnsafeHeader const*)  (in dyld) + 2208  [0x182498d08]
+    + !     1 dyld4::Loader::adjustFunctionVariantsInDyldCache(dyld4::RuntimeState&)  (in dyld) + 216  [0x1824c2b78]
+    + !       1 <deduplicated_symbol>  (in dyld) + 56  [0x1824a8f98]
+    + !         1 dyld4::ProcessConfig::DyldCache::makeDataConstWritable(dyld4::ProcessConfig::Logging const&, dyld4::SyscallDelegate const&, bool) const  (in dyld) + 124  [0x18249dc8c]
+    + !           1 DyldSharedCache::forEachCache(void (DyldSharedCache const*, bool&) block_pointer) const  (in dyld) + 168  [0x1824c7b2c]
+    + !             1 invocation function for block in dyld4::ProcessConfig::DyldCache::makeDataConstWritable(dyld4::ProcessConfig::Logging const&, dyld4::SyscallDelegate const&, bool) const  (in dyld) + 124  [0x18249e2e0]
+    + !               1 DyldSharedCache::forEachRegion(void (void const*, unsigned long long, unsigned long long, unsigned int, unsigned int, unsigned long long, unsigned long long, bool&) block_pointer) const  (in dyld) + 280  [0x1824c7a6c]
+    + !                 1 invocation function for block in dyld4::ProcessConfig::DyldCache::makeDataConstWritable(dyld4::ProcessConfig::Logging const&, dyld4::SyscallDelegate const&, bool) const  (in dyld) + 128  [0x18249e36c]
+    + !                   1 vm_protect  (in dyld) + 52  [0x18247d3c0]
+    + !                     1 _kernelrpc_mach_vm_protect_trap  (in dyld) + 8  [0x1824795b8]
+    + 2 start  (in dyld) + 6008  [0x100cbfa28]
+    + ! 2 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 2116  [0x100cd9390]
+    + !   1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 296  [0x100cd9c60]
+    + !   : 1 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x100d166f4]
+    + !   :   1 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 244  [0x100d16368]
+    + !   :     1 mach_msg_overwrite  (in dyld) + 244  [0x100d2fa40]
+    + !   :       1 mach_msg2_internal  (in dyld) + 76  [0x100d2f898]
+    + !   :         1 mach_msg2_trap  (in dyld) + 8  [0x100ca172c]
+    + !   1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 968  [0x100cd9f00]
+    + !     1 lsl::Allocator::~Allocator()  (in dyld) + 36  [0x100d14590]
+    + !       1 mach_vm_deallocate  (in dyld) + 40  [0x100ca3de4]
+    + !         1 _kernelrpc_mach_vm_deallocate_trap  (in dyld) + 8  [0x100ca15a0]
+    + 1 start  (in dyld) + 4700  [0x100cbf50c]
+    +   1 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 288  [0x100cd8c6c]
+    +     1 <deduplicated_symbol>  (in dyld) + 176  [0x100cd4a20]
+    +       1 lsl::Allocator::realloc(void*, unsigned long long)  (in dyld) + 280  [0x100d14dd0]
+    6787 Thread_107162   DispatchQueue_1: com.apple.main-thread  (serial)
+      6787 start  (in dyld) + 6992  [0x182497e00]
+        6694 main  (in bench_optimized) + 272  [0x100ac8648]  bench_optimized.cpp:0
+        ! 3130 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 296  [0x100ac9140]  order_book.cpp:119
+        ! : 1298 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 360  [0x100ac9e9c]  __hash_table:1588
+        ! : | 898 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 240,252  [0x100ac9ad0,0x100ac9adc]  __hash_table:1781
+        ! : | 152 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 292,296  [0x100ac9b04,0x100ac9b08]  __hash_table:1785
+        ! : | 130 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 88  [0x100ac9a38]  __hash_table:1773
+        ! : | + 130 __bzero  (in libsystem_platform.dylib) + 64,68  [0x18285f070,0x18285f074]
+        ! : | 50 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 228,236  [0x100ac9ac4,0x100ac9acc]  __hash_table:1780
+        ! : | 38 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 300  [0x100ac9b0c]  __hash_table:1786
+        ! : | 24 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 268,272,...  [0x100ac9aec,0x100ac9af0,...]  __hash_table:1782
+        ! : | 4 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 68  [0x100ac9a24]  __hash_table:1769
+        ! : | + 3 xzm_segment_group_free_chunk  (in libsystem_malloc.dylib) + 1900  [0x18265c87c]
+        ! : | + ! 3 _xzm_segment_group_cache_mark_free  (in libsystem_malloc.dylib) + 52  [0x18265e28c]
+        ! : | + !   2 _xzm_reclaim_mark_free  (in libsystem_malloc.dylib) + 164  [0x18265adf4]
+        ! : | + !   : 2 mach_vm_reclaim_update_kernel_accounting  (in libsystem_kernel.dylib) + 92  [0x182825464]
+        ! : | + !   :   2 mach_vm_reclaim_update_kernel_accounting_trap  (in libsystem_kernel.dylib) + 8  [0x182811cb8]
+        ! : | + !   1 _xzm_reclaim_mark_free  (in libsystem_malloc.dylib) + 112  [0x18265adc0]
+        ! : | + !     1 xzm_reclaim_mark_free_locked  (in libsystem_malloc.dylib) + 172  [0x18265a984]
+        ! : | + !       1 mach_vm_reclaim_try_enter  (in libsystem_kernel.dylib) + 200  [0x1828250ec]
+        ! : | + 1 xzm_segment_group_free_chunk  (in libsystem_malloc.dylib) + 636  [0x18265c38c]
+        ! : | +   1 _xzm_segment_group_segment_span_free_coalesce  (in libsystem_malloc.dylib) + 432  [0x18265ca4c]
+        ! : | +     1 _xzm_segment_group_span_mark_used  (in libsystem_malloc.dylib) + 148  [0x18265e364]
+        ! : | +       1 _xzm_reclaim_mark_used  (in libsystem_malloc.dylib) + 124  [0x18265af7c]
+        ! : | +         1 _xzm_reclaim_mark_used_locked  (in libsystem_malloc.dylib) + 100  [0x18265da78]
+        ! : | 1 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 48  [0x100ac9a10]  __hash_table:1769
+        ! : | + 1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18280c7e8]
+        ! : | +   1 _xzm_malloc_large_huge  (in libsystem_malloc.dylib) + 456  [0x1826723c8]
+        ! : | +     1 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 1176  [0x18265b864]
+        ! : | +       1 _xzm_segment_group_alloc_segment  (in libsystem_malloc.dylib) + 904  [0x18265de1c]
+        ! : | +         1 _xzm_segment_group_init_segment  (in libsystem_malloc.dylib) + 80  [0x18265d810]
+        ! : | 1 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized) + 244  [0x100ac9ad4]  __hash_table:1777
+        ! : 1048 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 88  [0x100ac9d8c]  __hash_table:1575
+        ! : 540 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 112  [0x100ac9da4]  __hash_table:1586
+        ! : | 501 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18280c7e8]
+        ! : | + 185 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 120  [0x1826795d0]
+        ! : | + 134 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 172,240,...  [0x18267296c,0x1826729b0,...]
+        ! : | + 88 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 112,0,...  [0x182672144,0x1826720d4,...]
+        ! : | + 61 malloc_type_malloc  (in libsystem_malloc.dylib) + 72,28,...  [0x18266602c,0x182666000,...]
+        ! : | + 18 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 116  [0x1826795cc]
+        ! : | + ! 11 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 1308  [0x18267a430]
+        ! : | + ! : 5 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 504  [0x18265b5c4]
+        ! : | + ! : | 4 _xzm_segment_group_find_and_allocate_chunk  (in libsystem_malloc.dylib) + 544,324  [0x18265bc10,0x18265bb34]
+        ! : | + ! : | 1 _xzm_segment_group_span_mark_smaller  (in libsystem_malloc.dylib) + 456  [0x18265d1f0]
+        ! : | + ! : 5 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 628  [0x18265b640]
+        ! : | + ! : | 3 _xzm_segment_group_alloc_segment  (in libsystem_malloc.dylib) + 904  [0x18265de1c]
+        ! : | + ! : | + 3 _xzm_segment_group_init_segment  (in libsystem_malloc.dylib) + 80  [0x18265d810]
+        ! : | + ! : | 2 _xzm_segment_group_alloc_segment  (in libsystem_malloc.dylib) + 752  [0x18265dd84]
+        ! : | + ! : |   2 mach_vm_map  (in libsystem_kernel.dylib) + 128  [0x1828119d0]
+        ! : | + ! : |     2 _kernelrpc_mach_vm_map_trap  (in libsystem_kernel.dylib) + 8  [0x182811acc]
+        ! : | + ! : 1 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 564  [0x18265b600]
+        ! : | + ! 4 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 88,1000,...  [0x182679f6c,0x18267a2fc,...]
+        ! : | + ! 1 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 168  [0x182679fbc]
+        ! : | + ! : 1 _xzm_chunk_list_pop  (in libsystem_malloc.dylib) + 68  [0x18267a8c4]
+        ! : | + ! 1 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 1028  [0x18267a318]
+        ! : | + ! : 1 _xzm_xzone_allocate_chunk_from_isolation  (in libsystem_malloc.dylib) + 36  [0x18267ac48]
+        ! : | + ! 1 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 1904  [0x18267a684]
+        ! : | + !   1 _xzm_chunk_list_push  (in libsystem_malloc.dylib) + 44  [0x18267a808]
+        ! : | + 13 DYLD-STUB$$malloc_type_malloc  (in libc++abi.dylib) + 8  [0x18280cc18]
+        ! : | + 2 xzm_malloc_zone_malloc_type_malloc  (in libsystem_malloc.dylib) + 0  [0x18267e11c]
+        ! : | 28 DYLD-STUB$$operator new(unsigned long)  (in bench_optimized) + 4,0,...  [0x100aca094,0x100aca090,...]
+        ! : | 11 operator new(unsigned long)  (in libc++abi.dylib) + 36,52,...  [0x18280c7d8,0x18280c7e8,...]
+        ! : 76 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 596  [0x100ac9f88]  __hash_table:1600
+        ! : 24 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 144,132,...  [0x100ac9dc4,0x100ac9db8,...]  __hash_table:1587
+        ! : 21 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 124,104,...  [0x100ac9db0,0x100ac9d9c,...]  __hash_table:1586
+        ! : 20 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 8,12,...  [0x100ac9d3c,0x100ac9d40,...]  __hash_table:1567
+        ! : 17 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 624,608,...  [0x100ac9fa4,0x100ac9f94,...]  __hash_table:1602
+        ! : 13 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 32  [0x100ac9d54]  __hash_table:1569
+        ! : 13 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 588,580,...  [0x100ac9f80,0x100ac9f78,...]  __hash_table:1597
+        ! : 13 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 600  [0x100ac9f8c]  __hash_table:1601
+        ! : 13 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 560  [0x100ac9f64]  __hash_table:1614
+        ! : 11 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 52,60  [0x100ac9d68,0x100ac9d70]  __hash_table:1574
+        ! : 10 operator new(unsigned long)  (in libc++abi.dylib) + 76,80  [0x18280c800,0x18280c804]
+        ! : 8 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 520,516  [0x100ac9f3c,0x100ac9f38]  __hash_table:1594
+        ! : 2 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 592  [0x100ac9f84]  __hash_table:1598
+        ! : 2 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 548  [0x100ac9f58]  __hash_table:1609
+        ! : 1 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 96  [0x100ac9d94]  __hash_table:0
+        ! 2058 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 968  [0x100ac8fd0]  order_book.cpp:89
+        ! : 2023 std::chrono::steady_clock::now()  (in libc++.1.dylib) + 28  [0x18276a6f0]
+        ! : | 1955 clock_gettime  (in libsystem_c.dylib) + 60  [0x1826f2d60]
+        ! : | + 1820 clock_gettime_nsec_np  (in libsystem_c.dylib) + 400  [0x1826e516c]
+        ! : | + ! 1795 mach_continuous_time  (in libsystem_kernel.dylib) + 96,100,...  [0x182812084,0x182812088,...]
+        ! : | + ! 25 DYLD-STUB$$mach_continuous_time  (in libsystem_c.dylib) + 8  [0x18275d884]
+        ! : | + 72 clock_gettime_nsec_np  (in libsystem_c.dylib) + 240,316,...  [0x1826e50cc,0x1826e5118,...]
+        ! : | + 46 clock_gettime_nsec_np  (in libsystem_c.dylib) + 240  [0x1826e50cc]
+        ! : | + ! 30 mach_timebase_info  (in libsystem_kernel.dylib) + 28,0,...  [0x182811fe8,0x182811fcc,...]
+        ! : | + ! 16 DYLD-STUB$$mach_timebase_info  (in libsystem_c.dylib) + 8,0  [0x18275d8c4,0x18275d8bc]
+        ! : | + 17 mach_timebase_info  (in libsystem_kernel.dylib) + 80,84  [0x18281201c,0x182812020]
+        ! : | 51 clock_gettime  (in libsystem_c.dylib) + 112,12,...  [0x1826f2d94,0x1826f2d30,...]
+        ! : | 17 DYLD-STUB$$clock_gettime  (in libc++.1.dylib) + 8,12  [0x1827ca510,0x1827ca514]
+        ! : 21 std::chrono::steady_clock::now()  (in libc++.1.dylib) + 8,0,...  [0x18276a6dc,0x18276a6d4,...]
+        ! : 14 DYLD-STUB$$std::chrono::steady_clock::now()  (in bench_optimized) + 4,0  [0x100aca028,0x100aca024]
+        ! 544 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 1024  [0x100ac9008]  order_book.cpp:84
+        ! : 537 NanoMatch::MemoryPool<NanoMatch::Order, 100000ul>::expand()  (in bench_optimized) + 72,60  [0x100ac96b4,0x100ac96a8]  order.h:76
+        ! : 3 NanoMatch::MemoryPool<NanoMatch::Order, 100000ul>::expand()  (in bench_optimized) + 40  [0x100ac9694]  order.h:71
+        ! : | 3 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+        ! : |   3 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 168  [0x1826663b8]
+        ! : |     2 _xzm_malloc_large_huge  (in libsystem_malloc.dylib) + 456  [0x1826723c8]
+        ! : |     + 2 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 1176  [0x18265b864]
+        ! : |     +   1 _xzm_segment_group_alloc_segment  (in libsystem_malloc.dylib) + 904  [0x18265de1c]
+        ! : |     +   ! 1 _xzm_segment_group_init_segment  (in libsystem_malloc.dylib) + 80  [0x18265d810]
+        ! : |     +   1 _xzm_segment_group_alloc_segment  (in libsystem_malloc.dylib) + 384  [0x18265dc14]
+        ! : |     1 _xzm_malloc_large_huge  (in libsystem_malloc.dylib) + 532  [0x182672414]
+        ! : 3 NanoMatch::MemoryPool<NanoMatch::Order, 100000ul>::expand()  (in bench_optimized) + 80,84  [0x100ac96bc,0x100ac96c0]  order.h:75
+        ! : 1 NanoMatch::MemoryPool<NanoMatch::Order, 100000ul>::expand()  (in bench_optimized) + 56  [0x100ac96a4]  order.h:73
+        ! :   1 <deduplicated_symbol>  (in bench_optimized) + 132  [0x100ac9770]
+        ! :     1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18280c7e8]
+        ! :       1 mfm_alloc  (in libsystem_malloc.dylib) + 80  [0x182666cd0]
+        ! 515 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 132,72,...  [0x100ac909c,0x100ac9060,...]  order_book.cpp:109
+        ! 238 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 944,932,...  [0x100ac8fb8,0x100ac8fac,...]  order_book.cpp:84
+        ! 35 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 24,44,...  [0x100ac8c20,0x100ac8c34,...]  order_book.cpp:15
+        ! 23 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 156  [0x100ac90b4]  order_book.cpp:110
+        ! 22 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized) + 572,564  [0x100ac9f70,0x100ac9f68]  __hash_table:1614
+        ! 20 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 272,296,...  [0x100ac9128,0x100ac9140,...]  order_book.cpp:119
+        ! 19 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 12,16,...  [0x100ac9024,0x100ac9028,...]  order_book.cpp:108
+        ! 18 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 172  [0x100ac90c4]  order_book.cpp:115
+        ! 17 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 512,528,...  [0x100ac8e08,0x100ac8e18,...]  order_book.cpp:17
+        ! 16 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 88,104,...  [0x100ac8c60,0x100ac8c70,...]  order_book.cpp:50
+        ! 16 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 984  [0x100ac8fe0]  order_book.cpp:92
+        ! 13 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 52  [0x100ac8c3c]  order_book.cpp:16
+        ! 4 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 252,260  [0x100ac9114,0x100ac911c]  order_book.cpp:118
+        ! 2 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 300  [0x100ac9144]  order_book.cpp:120
+        ! 2 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 968  [0x100ac8fd0]  order_book.cpp:91
+        ! 1 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 168  [0x100ac90c0]  order_book.cpp:114
+        ! 1 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 484  [0x100ac8dec]  order_book.cpp:0
+        33 main  (in bench_optimized) + 296  [0x100ac8660]  bench_optimized.cpp:25
+        ! 31 NanoMatch::OrderBook::~OrderBook()  (in bench_optimized) + 120  [0x100ac8b8c]  order_book.cpp:13
+        ! : 31 _xzm_free_large_huge  (in libsystem_malloc.dylib) + 88  [0x18267c96c]
+        ! 2 NanoMatch::OrderBook::~OrderBook()  (in bench_optimized) + 68  [0x100ac8b58]  order_book.cpp:13
+        !   1 _xzm_free  (in libsystem_malloc.dylib) + 196  [0x182673130]
+        !   1 _xzm_free_large_huge  (in libsystem_malloc.dylib) + 88  [0x18267c96c]
+        25 main  (in bench_optimized) + 272,280  [0x100ac8648,0x100ac8650]  bench_optimized.cpp:17
+        22 NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized) + 312,308  [0x100ac9150,0x100ac914c]  order_book.cpp:120
+        7 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 988  [0x100ac8fe4]  order_book.cpp:92
+        2 main  (in bench_optimized) + 144  [0x100ac85c8]  bench_optimized.cpp:13
+        ! 1 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 24  [0x100ac8c20]  order_book.cpp:15
+        ! 1 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 968  [0x100ac8fd0]  order_book.cpp:89
+        !   1 std::chrono::steady_clock::now()  (in libc++.1.dylib) + 28  [0x18276a6f0]
+        !     1 DYLD-STUB$$clock_gettime  (in libc++.1.dylib) + 8  [0x1827ca510]
+        2 main  (in bench_optimized) + 172  [0x100ac85e4]  bench_optimized.cpp:14
+        ! 1 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 52  [0x100ac8c3c]  order_book.cpp:16
+        ! 1 NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized) + 212  [0x100ac8cdc]  order_book.cpp:65
+        !   1 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__erase_unique<unsigned long long>(unsigned long long const&)  (in bench_optimized) + 224  [0x100ac9bf8]  __hash_table:1917
+        !     1 _xzm_free  (in libsystem_malloc.dylib) + 1048  [0x182673484]
+        !       1 mach_absolute_time  (in libsystem_kernel.dylib) + 108  [0x18281210c]
+        1 main  (in bench_optimized) + 44  [0x100ac8564]  bench_optimized.cpp:10
+        ! 1 NanoMatch::OrderBook::OrderBook(std::unique_ptr<NanoMatch::TradeLogger>)  (in bench_optimized) + 140  [0x100ac8808]  order_book.cpp:6
+        1 main  (in bench_optimized) + 224  [0x100ac8618]  bench_optimized.cpp:18
+
+Total number in stack (recursive counted multiple, when >=5):
+
+Sort by top of stack, same collapsed (when >= 5):
+        mach_continuous_time  (in libsystem_kernel.dylib)        1795
+        std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_optimized)        1304
+        std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_optimized)        1163
+        NanoMatch::OrderBook::add_to_book(NanoMatch::Order*)  (in bench_optimized)        624
+        NanoMatch::MemoryPool<NanoMatch::Order, 100000ul>::expand()  (in bench_optimized)        540
+        _dyld_start  (in dyld)        397
+        NanoMatch::OrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_optimized)        347
+        _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib)        185
+        _xzm_xzone_malloc  (in libsystem_malloc.dylib)        134
+        __bzero  (in libsystem_platform.dylib)        130
+        <deduplicated_symbol>  (in libsystem_malloc.dylib)        88
+        clock_gettime_nsec_np  (in libsystem_c.dylib)        72
+        malloc_type_malloc  (in libsystem_malloc.dylib)        61
+        clock_gettime  (in libsystem_c.dylib)        51
+        mach_timebase_info  (in libsystem_kernel.dylib)        47
+        _xzm_free_large_huge  (in libsystem_malloc.dylib)        32
+        DYLD-STUB$$operator new(unsigned long)  (in bench_optimized)        28
+        main  (in bench_optimized)        26
+        DYLD-STUB$$mach_continuous_time  (in libsystem_c.dylib)        25
+        operator new(unsigned long)  (in libc++abi.dylib)        21
+        std::chrono::steady_clock::now()  (in libc++.1.dylib)        21
+        DYLD-STUB$$clock_gettime  (in libc++.1.dylib)        18
+        DYLD-STUB$$mach_timebase_info  (in libsystem_c.dylib)        16
+        DYLD-STUB$$std::chrono::steady_clock::now()  (in bench_optimized)        14
+        DYLD-STUB$$malloc_type_malloc  (in libc++abi.dylib)        13
+        _xzm_segment_group_init_segment  (in libsystem_malloc.dylib)        5
+
+Binary images description not available
+

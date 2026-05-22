@@ -1,0 +1,331 @@
+Analysis of sampling bench_baseline (pid 4521) every 1 millisecond
+Process:         bench_baseline [4521]
+Path:            /Users/USER/*/bench_baseline
+Load Address:    0x10459c000
+Identifier:      bench_baseline
+Version:         ???
+Code Type:       ARM64
+Parent Process:  zsh [2216]
+Target Type:     live task
+
+Date/Time:       2026-05-22 23:30:04.119 +0530
+Launch Time:     2026-05-22 23:30:04.041 +0530
+OS Version:      macOS 26.5 (25F71)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         3.9G
+Physical footprint (peak):  4.6G
+Idle exit:                  untracked
+----
+
+Call graph:
+    747 Thread_106913: Main Thread
+    + 740 _dyld_start  (in dyld) + 0  [0x1047709c0]
+    + 4 start  (in dyld) + 6904  [0x182497da8]
+    + ! 4 dyld4::start(dyld4::KernelArgs*, void*, void*, unsigned long long)::$_1::operator()() const  (in dyld) + 320  [0x18249844c]
+    + !   3 dyld4::prepare(dyld4::APIs&, mach_o::UnsafeHeader const*)  (in dyld) + 3692  [0x1824992d4]
+    + !   : 3 dyld4::RuntimeState::notifyDebuggerLoad(std::span<dyld4::Loader const*, 18446744073709551615ul> const&)  (in dyld) + 528  [0x1824a843c]
+    + !   :   3 dyld4::ExternallyViewableState::addImages(lsl::Allocator&, lsl::Allocator&, std::span<dyld4::ExternallyViewableState::ImageInfo, 18446744073709551615ul> const&)  (in dyld) + 1084  [0x1824b23bc]
+    + !   :     2 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 296  [0x1824b1c60]
+    + !   :     | 2 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x1824ee6f4]
+    + !   :     |   2 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 244  [0x1824ee368]
+    + !   :     |     2 mach_msg_overwrite  (in dyld) + 244  [0x182507a40]
+    + !   :     |       2 mach_msg2_internal  (in dyld) + 76  [0x182507898]
+    + !   :     |         2 mach_msg2_trap  (in dyld) + 8  [0x18247972c]
+    + !   :     1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 844  [0x1824b1e84]
+    + !   :       1 dyld4::RemoteNotificationResponder::notifyMonitorOfImageListChanges(bool, unsigned int, mach_header const**, char const**, unsigned long long)  (in dyld) + 484  [0x1824ee608]
+    + !   :         1 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 244  [0x1824ee368]
+    + !   :           1 mach_msg_overwrite  (in dyld) + 244  [0x182507a40]
+    + !   :             1 mach_msg2_internal  (in dyld) + 76  [0x182507898]
+    + !   :               1 mach_msg2_trap  (in dyld) + 8  [0x18247972c]
+    + !   1 dyld4::prepare(dyld4::APIs&, mach_o::UnsafeHeader const*)  (in dyld) + 1124  [0x1824988cc]
+    + !     1 dyld4::JustInTimeLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 304  [0x1824b7140]
+    + !       1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !         1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !           1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !             1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !               1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                 1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                   1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                     1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                       1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                         1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                           1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                             1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                               1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                 1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                   1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                     1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                       1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                         1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                           1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                             1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                               1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                 1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                   1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                     1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                       1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                         1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                           1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                             1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                               1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+    + !                                                                 1 dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 340  [0x1824e7834]
+    + 1 start  (in dyld) + 4700  [0x10478b50c]
+    + ! 1 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 2116  [0x1047a5390]
+    + !   1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 296  [0x1047a5c60]
+    + !     1 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x1047e26f4]
+    + !       1 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 244  [0x1047e2368]
+    + !         1 mach_msg_overwrite  (in dyld) + 244  [0x1047fba40]
+    + !           1 mach_msg2_internal  (in dyld) + 76  [0x1047fb898]
+    + !             1 mach_msg2_trap  (in dyld) + 8  [0x10476d72c]
+    + 1 start  (in dyld) + 6008  [0x10478ba28]
+    + ! 1 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 2116  [0x1047a5390]
+    + !   1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 296  [0x1047a5c60]
+    + !     1 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x1047e26f4]
+    + !       1 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 244  [0x1047e2368]
+    + !         1 mach_msg_overwrite  (in dyld) + 244  [0x1047fba40]
+    + !           1 mach_msg2_internal  (in dyld) + 76  [0x1047fb898]
+    + !             1 mach_msg2_trap  (in dyld) + 8  [0x10476d72c]
+    + 1 start  (in dyld) + 4028  [0x18249726c]
+    +   1 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 2116  [0x1824b1390]
+    +     1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 296  [0x1824b1c60]
+    +       1 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x1824ee6f4]
+    +         1 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 244  [0x1824ee368]
+    +           1 mach_msg_overwrite  (in dyld) + 244  [0x182507a40]
+    +             1 mach_msg2_internal  (in dyld) + 76  [0x182507898]
+    +               1 mach_msg2_trap  (in dyld) + 8  [0x18247972c]
+    5825 Thread_106913   DispatchQueue_1: com.apple.main-thread  (serial)
+      5825 start  (in dyld) + 6992  [0x182497e00]
+        4258 main  (in bench_baseline) + 344  [0x10459c690]  bench_baseline.cpp:24
+        ! 4258 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        !   3833 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        !   : 1757 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        !   : | 685 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        !   : | + 570 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !   : | + 115 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !   : | +   111 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !   : | +   : 111 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !   : | +   3 _xzm_free  (in libsystem_malloc.dylib) + 196,996  [0x182673130,0x182673450]
+        !   : | +   1 _free  (in libsystem_malloc.dylib) + 0  [0x182682c4c]
+        !   : | 534 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 48  [0x10459d5ac]  __tree:1451
+        !   : | + 423 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !   : | + 111 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !   : | +   105 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !   : | +   : 105 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !   : | +   6 _xzm_free  (in libsystem_malloc.dylib) + 196,992  [0x182673130,0x18267344c]
+        !   : | 428 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !   : | 110 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !   : |   107 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !   : |   ! 107 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !   : |   3 _xzm_free  (in libsystem_malloc.dylib) + 196,992  [0x182673130,0x18267344c]
+        !   : 1541 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 48  [0x10459d5ac]  __tree:1451
+        !   : | 518 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 48  [0x10459d5ac]  __tree:1451
+        !   : | + 400 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !   : | + 118 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !   : | +   113 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !   : | +   : 113 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !   : | +   5 _xzm_free  (in libsystem_malloc.dylib) + 992,196  [0x18267344c,0x182673130]
+        !   : | 517 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        !   : | + 410 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !   : | + 107 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !   : | +   105 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !   : | +   : 105 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !   : | +   1 _free  (in libsystem_malloc.dylib) + 0  [0x182682c4c]
+        !   : | +   1 _xzm_free  (in libsystem_malloc.dylib) + 196  [0x182673130]
+        !   : | 385 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !   : | 121 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !   : |   115 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !   : |   ! 115 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !   : |   6 _xzm_free  (in libsystem_malloc.dylib) + 196,992,...  [0x182673130,0x18267344c,...]
+        !   : 415 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !   : 120 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !   :   117 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !   :   + 117 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !   :   1 _free  (in libsystem_malloc.dylib) + 0  [0x182682c4c]
+        !   :   1 _xzm_free  (in libsystem_malloc.dylib) + 996  [0x182673450]
+        !   :   1 operator delete(void*, std::align_val_t)  (in libc++abi.dylib) + 0  [0x18280b34c]
+        !   425 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 48  [0x10459d5ac]  __tree:1451
+        !     425 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        !       425 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        !         340 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 92  [0x10459d5d8]  __tree:1453
+        !         85 std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        !           79 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        !           + 79 _platform_memset  (in libsystem_platform.dylib) + 108  [0x18285f0fc]
+        !           5 _xzm_free  (in libsystem_malloc.dylib) + 196,684,...  [0x182673130,0x182673318,...]
+        !           1 delete(void*, std::align_val_t)  (in bench_baseline) + 4  [0x10459ebd0]
+        1288 main  (in bench_baseline) + 276  [0x10459c64c]  bench_baseline.cpp:0
+        ! 464 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 956  [0x10459ca90]  stl_order_book.h:64
+        ! : 146 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 360  [0x10459d304]  __hash_table:1588
+        ! : | 57 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_baseline) + 240,252  [0x10459d534,0x10459d540]  __hash_table:1781
+        ! : | 33 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_baseline) + 88  [0x10459d49c]  __hash_table:1773
+        ! : | + 33 __bzero  (in libsystem_platform.dylib) + 64,68,...  [0x18285f070,0x18285f074,...]
+        ! : | 30 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_baseline) + 292  [0x10459d568]  __hash_table:1785
+        ! : | 18 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_baseline) + 228  [0x10459d528]  __hash_table:1780
+        ! : | 7 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_baseline) + 268  [0x10459d550]  __hash_table:1782
+        ! : | 1 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_baseline) + 244  [0x10459d538]  __hash_table:1777
+        ! : 131 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 112  [0x10459d20c]  __hash_table:1586
+        ! : | 120 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x18280c7e8]
+        ! : | + 37 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 32,8,...  [0x1826728e0,0x1826728c8,...]
+        ! : | + 35 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 112,0,...  [0x182672144,0x1826720d4,...]
+        ! : | + 25 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 120  [0x1826795d0]
+        ! : | + 13 malloc_type_malloc  (in libsystem_malloc.dylib) + 28,84,...  [0x182666000,0x182666038,...]
+        ! : | + 7 DYLD-STUB$$malloc_type_malloc  (in libc++abi.dylib) + 8  [0x18280cc18]
+        ! : | + 3 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 116  [0x1826795cc]
+        ! : | +   3 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 1308  [0x18267a430]
+        ! : | +     3 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 504  [0x18265b5c4]
+        ! : | +       3 _xzm_segment_group_find_and_allocate_chunk  (in libsystem_malloc.dylib) + 324,544  [0x18265bb34,0x18265bc10]
+        ! : | 6 operator new(unsigned long)  (in libc++abi.dylib) + 36,28  [0x18280c7d8,0x18280c7d0]
+        ! : | 5 DYLD-STUB$$operator new(unsigned long)  (in bench_baseline) + 4,0  [0x10459ebe8,0x10459ebe4]
+        ! : 118 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 88  [0x10459d1f4]  __hash_table:1575
+        ! : 18 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 32  [0x10459d1bc]  __hash_table:1569
+        ! : 10 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 520  [0x10459d3a4]  __hash_table:1594
+        ! : 8 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 12,24  [0x10459d1a8,0x10459d1b4]  __hash_table:1567
+        ! : 8 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 52,56,...  [0x10459d1d0,0x10459d1d4,...]  __hash_table:1574
+        ! : 8 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 596  [0x10459d3f0]  __hash_table:1600
+        ! : 6 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 144  [0x10459d22c]  __hash_table:1587
+        ! : 6 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 600  [0x10459d3f4]  __hash_table:1601
+        ! : 2 operator new(unsigned long)  (in libc++abi.dylib) + 76  [0x18280c800]
+        ! : 2 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 624  [0x10459d40c]  __hash_table:1602
+        ! : 1 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 252  [0x10459d298]  __hash_table:1578
+        ! 293 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 876  [0x10459ca40]  stl_order_book.h:0
+        ! : 264 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+        ! : | 236 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 168  [0x1826663b8]
+        ! : | + 126 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 120,0  [0x1826795d0,0x182679558]
+        ! : | + 39 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 8,172,...  [0x1826728c8,0x18267296c,...]
+        ! : | + 32 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 112,212,...  [0x182672144,0x1826721a8,...]
+        ! : | + 14 _xzm_memalign  (in libsystem_malloc.dylib) + 40,0,...  [0x182672aa8,0x182672a80,...]
+        ! : | + 14 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 172,168  [0x1826663bc,0x1826663b8]
+        ! : | + 11 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 116  [0x1826795cc]
+        ! : | +   10 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 1308  [0x18267a430]
+        ! : | +   : 8 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 504  [0x18265b5c4]
+        ! : | +   : | 3 _xzm_segment_group_find_and_allocate_chunk  (in libsystem_malloc.dylib) + 544,316  [0x18265bc10,0x18265bb2c]
+        ! : | +   : | 2 _xzm_segment_group_find_and_allocate_chunk  (in libsystem_malloc.dylib) + 1156  [0x18265be74]
+        ! : | +   : | + 2 _xzm_segment_group_segment_span_mark_allocated  (in libsystem_malloc.dylib) + 0,200  [0x18265d2ac,0x18265d374]
+        ! : | +   : | 2 _xzm_segment_group_span_mark_smaller  (in libsystem_malloc.dylib) + 444  [0x18265d1e4]
+        ! : | +   : | 1 _xzm_segment_group_find_and_allocate_chunk  (in libsystem_malloc.dylib) + 528  [0x18265bc00]
+        ! : | +   : |   1 _xzm_segment_group_span_mark_smaller  (in libsystem_malloc.dylib) + 372  [0x18265d19c]
+        ! : | +   : 1 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 628  [0x18265b640]
+        ! : | +   : | 1 _xzm_segment_group_alloc_segment  (in libsystem_malloc.dylib) + 752  [0x18265dd84]
+        ! : | +   : |   1 mach_vm_map  (in libsystem_kernel.dylib) + 128  [0x1828119d0]
+        ! : | +   : |     1 _kernelrpc_mach_vm_map_trap  (in libsystem_kernel.dylib) + 8  [0x182811acc]
+        ! : | +   : 1 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 988  [0x18265b7a8]
+        ! : | +   1 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 1740  [0x18267a5e0]
+        ! : | 20 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 84,108,...  [0x182666364,0x18266637c,...]
+        ! : | 6 DYLD-STUB$$malloc_type_aligned_alloc  (in libc++abi.dylib) + 8,12  [0x18280cbf8,0x18280cbfc]
+        ! : | 2 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+        ! : |   2 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 156  [0x1826663ac]
+        ! : 18 new(unsigned long, std::align_val_t)  (in bench_baseline) + 4,0,...  [0x10459ebf4,0x10459ebf0,...]
+        ! : 11 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 64,36,...  [0x18280c8a8,0x18280c88c,...]
+        ! 200 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 540  [0x10459c8f0]  stl_order_book.h:54
+        ! : 174 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+        ! : | 145 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 168  [0x1826663b8]
+        ! : | + 61 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 120,144  [0x1826795d0,0x1826795e8]
+        ! : | + 33 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 8,172,...  [0x1826728c8,0x18267296c,...]
+        ! : | + 32 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 0,112,...  [0x1826720d4,0x182672144,...]
+        ! : | + 9 _xzm_memalign  (in libsystem_malloc.dylib) + 16,20,...  [0x182672a90,0x182672a94,...]
+        ! : | + 5 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 172  [0x1826663bc]
+        ! : | + 4 _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib) + 116  [0x1826795cc]
+        ! : | + ! 3 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 1308  [0x18267a430]
+        ! : | + ! : 2 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 504  [0x18265b5c4]
+        ! : | + ! : | 2 _xzm_segment_group_find_and_allocate_chunk  (in libsystem_malloc.dylib) + 36,316  [0x18265ba14,0x18265bb2c]
+        ! : | + ! : 1 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 916  [0x18265b760]
+        ! : | + ! 1 xzm_segment_group_alloc_chunk  (in libsystem_malloc.dylib) + 1204  [0x18265b880]
+        ! : | + 1 xzm_malloc_zone_malloc_type_memalign  (in libsystem_malloc.dylib) + 0  [0x18267e130]
+        ! : | 22 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 32,108,...  [0x182666330,0x18266637c,...]
+        ! : | 6 DYLD-STUB$$malloc_type_aligned_alloc  (in libc++abi.dylib) + 8  [0x18280cbf8]
+        ! : | 1 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+        ! : |   1 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 156  [0x1826663ac]
+        ! : 17 new(unsigned long, std::align_val_t)  (in bench_baseline) + 4,0,...  [0x10459ebf4,0x10459ebf0,...]
+        ! : 9 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 64,60,...  [0x18280c8a8,0x18280c8a4,...]
+        ! 113 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 592,620,...  [0x10459c924,0x10459c940,...]  stl_order_book.h:63
+        ! 95 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 732,760,...  [0x10459c9b0,0x10459c9cc,...]  stl_order_book.h:62
+        ! 45 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 116,60,...  [0x10459c748,0x10459c710,...]  stl_order_book.h:35
+        ! 23 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 104  [0x18280c8d0]
+        ! 14 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 892,864  [0x10459ca50,0x10459ca34]  stl_order_book.h:0
+        ! 14 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 52,24  [0x10459c708,0x10459c6ec]  stl_order_book.h:17
+        ! 13 std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline) + 572  [0x10459d3d8]  __hash_table:1614
+        ! 5 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 364  [0x10459c840]  stl_order_book.h:20
+        ! 4 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 932,952  [0x10459ca78,0x10459ca8c]  stl_order_book.h:64
+        ! 3 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 560  [0x10459c904]  stl_order_book.h:60
+        ! 1 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 368  [0x10459c844]  stl_order_book.h:19
+        ! 1 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 960  [0x10459ca94]  stl_order_book.h:66
+        215 main  (in bench_baseline) + 308  [0x10459c66c]  bench_baseline.cpp:24
+        ! 102 _xzm_free  (in libsystem_malloc.dylib) + 996,128,...  [0x182673450,0x1826730ec,...]
+        ! 51 _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        ! : 38 _platform_memset  (in libsystem_platform.dylib) + 176,180,...  [0x18285f140,0x18285f144,...]
+        ! : 10 DYLD-STUB$$_platform_bzero  (in libsystem_malloc.dylib) + 8  [0x18268a7f4]
+        ! : 3 __bzero  (in libsystem_platform.dylib) + 0  [0x18285f030]
+        ! 34 _free  (in libsystem_malloc.dylib) + 0,76,...  [0x182682c4c,0x182682c98,...]
+        ! 17 DYLD-STUB$$free  (in libc++abi.dylib) + 8  [0x18280cbd8]
+        ! 6 DYLD-STUB$$operator delete(void*)  (in bench_baseline) + 4  [0x10459ebc4]
+        ! 5 _xzm_xzone_madvise_batch  (in libsystem_malloc.dylib) + 456  [0x18267b030]
+        !   5 xzm_reclaim_mark_free_locked  (in libsystem_malloc.dylib) + 232  [0x18265a9c0]
+        !     5 mach_vm_reclaim_ring_resize  (in libsystem_kernel.dylib) + 88  [0x182824f94]
+        !       5 mach_vm_deferred_reclamation_buffer_resize  (in libsystem_kernel.dylib) + 140  [0x18283a4d0]
+        !         5 mach_msg2_internal  (in libsystem_kernel.dylib) + 76  [0x182824574]
+        !           5 mach_msg2_trap  (in libsystem_kernel.dylib) + 8  [0x182811c34]
+        32 main  (in bench_baseline) + 300  [0x10459c664]  bench_baseline.cpp:24
+        11 _xzm_free  (in libsystem_malloc.dylib) + 1560  [0x182673684]
+        9 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 980  [0x10459caa8]  stl_order_book.h:66
+        6 main  (in bench_baseline) + 148  [0x10459c5cc]  bench_baseline.cpp:12
+        ! 4 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 876  [0x10459ca40]  stl_order_book.h:0
+        ! : 3 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+        ! : | 2 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 108  [0x18266637c]
+        ! : | 1 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 168  [0x1826663b8]
+        ! : |   1 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 64  [0x182672900]
+        ! : 1 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 64  [0x18280c8a8]
+        ! 1 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 540  [0x10459c8f0]  stl_order_book.h:54
+        ! : 1 operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+        ! :   1 malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 168  [0x1826663b8]
+        ! :     1 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 80  [0x182672124]
+        ! 1 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 844  [0x10459ca20]  stl_order_book.h:62
+        !   1 std::__tree_balance_after_insert[abi:nqe210106]<std::__tree_node_base<void*>*>(std::__tree_node_base<void*>*, std::__tree_node_base<void*>*)  (in bench_baseline) + 8  [0x10459cfd8]  __tree:278
+        5 main  (in bench_baseline) + 280,276  [0x10459c650,0x10459c64c]  bench_baseline.cpp:16
+        1 main  (in bench_baseline) + 176  [0x10459c5e8]  bench_baseline.cpp:13
+          1 NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline) + 288  [0x10459c7f4]  stl_order_book.h:42
+            1 _xzm_free  (in libsystem_malloc.dylib) + 580  [0x1826732b0]
+
+Total number in stack (recursive counted multiple, when >=5):
+        29       dyld4::PrebuiltLoader::loadDependents(Diagnostics&, dyld4::RuntimeState&, dyld4::Loader::LoadOptions const&)  (in dyld) + 424  [0x1824e7888]
+        11       _xzm_free  (in libsystem_malloc.dylib) + 0  [0x18267306c]
+        9       _platform_memset  (in libsystem_platform.dylib) + 0  [0x18285f090]
+        9       _xzm_free  (in libsystem_malloc.dylib) + 352  [0x1826731cc]
+        8       std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 0  [0x10459d57c]  __tree:1453
+        8       std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 104  [0x10459d5e4]  __tree:1453
+        7       malloc_type_aligned_alloc  (in libsystem_malloc.dylib) + 0  [0x182666310]
+        7       std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline) + 36  [0x10459d5a0]  __tree:1450
+        6       operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib) + 80  [0x18280c8b8]
+
+Sort by top of stack, same collapsed (when >= 5):
+        std::__tree<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, std::__map_value_compare<unsigned long long, std::pair<unsigned long long const, std::list<NanoMatch::Order>>, true>>::destroy(std::__tree_node<std::__value_type<unsigned long long, std::list<NanoMatch::Order>>, void*>*)  (in bench_baseline)        3371
+        _platform_memset  (in libsystem_platform.dylib)        890
+        _dyld_start  (in dyld)        740
+        NanoMatch::STLOrderBook::limit_order(unsigned long long, NanoMatch::Side, unsigned long long, unsigned int)  (in bench_baseline)        304
+        _xzm_xzone_thread_cache_fill_and_malloc  (in libsystem_malloc.dylib)        212
+        std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__emplace_unique_key_args<unsigned long long, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>, std::tuple<>>(unsigned long long const&, std::piecewise_construct_t const&, std::tuple<unsigned long long const&>&&, std::tuple<>&&)  (in bench_baseline)        198
+        _xzm_free  (in libsystem_malloc.dylib)        144
+        std::__hash_table<std::__hash_value_type<unsigned long long, NanoMatch::Order*>>::__do_rehash<true>(unsigned long)  (in bench_baseline)        113
+        _xzm_xzone_malloc  (in libsystem_malloc.dylib)        110
+        <deduplicated_symbol>  (in libsystem_malloc.dylib)        100
+        malloc_type_aligned_alloc  (in libsystem_malloc.dylib)        66
+        operator new(unsigned long, std::align_val_t)  (in libc++abi.dylib)        44
+        _free  (in libsystem_malloc.dylib)        37
+        main  (in bench_baseline)        37
+        __bzero  (in libsystem_platform.dylib)        36
+        new(unsigned long, std::align_val_t)  (in bench_baseline)        35
+        _xzm_memalign  (in libsystem_malloc.dylib)        23
+        DYLD-STUB$$free  (in libc++abi.dylib)        17
+        malloc_type_malloc  (in libsystem_malloc.dylib)        13
+        DYLD-STUB$$malloc_type_aligned_alloc  (in libc++abi.dylib)        12
+        DYLD-STUB$$_platform_bzero  (in libsystem_malloc.dylib)        10
+        _xzm_segment_group_find_and_allocate_chunk  (in libsystem_malloc.dylib)        8
+        operator new(unsigned long)  (in libc++abi.dylib)        8
+        DYLD-STUB$$malloc_type_malloc  (in libc++abi.dylib)        7
+        DYLD-STUB$$operator delete(void*)  (in bench_baseline)        6
+        mach_msg2_trap  (in dyld)        6
+        DYLD-STUB$$operator new(unsigned long)  (in bench_baseline)        5
+        mach_msg2_trap  (in libsystem_kernel.dylib)        5
+
+Binary images description not available
+

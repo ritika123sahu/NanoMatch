@@ -9,7 +9,7 @@
 using namespace NanoMatch;
 
 void run_bench() {
-    const int N = 50000;
+    const int N = 1000000;
     PerformanceTimer timer;
     
     // 1. Optimized Version
@@ -17,12 +17,19 @@ void run_bench() {
     std::vector<uint64_t> opt_latencies;
     opt_latencies.reserve(N);
 
-    // Warmup
-    for(int i=0; i<1000; ++i) opt_book.limit_order(i, Side::Buy, 100, 1);
+    // Aggressive Warmup
+    for(int i=0; i<100000; ++i) {
+        opt_book.limit_order(i, Side::Buy, 1000 + (i % 500), 10);
+        opt_book.limit_order(i + 100000, Side::Sell, 1000 + (i % 500), 10);
+    }
 
     for(int i=0; i<N; ++i) {
         uint64_t s = timer.now();
-        opt_book.limit_order(10000+i, Side::Sell, 100, 1);
+        if (i % 2 == 0) {
+            opt_book.limit_order(200000+i, Side::Sell, 1000 + (i % 100), 1);
+        } else {
+            opt_book.limit_order(200000+i, Side::Buy, 900 + (i % 100), 1);
+        }
         uint64_t e = timer.now();
         opt_latencies.push_back(timer.to_nanoseconds(e - s));
     }
@@ -32,11 +39,18 @@ void run_bench() {
     std::vector<uint64_t> stl_latencies;
     stl_latencies.reserve(N);
 
-    for(int i=0; i<1000; ++i) stl_book.limit_order(i, Side::Buy, 100, 1);
+    for(int i=0; i<100000; ++i) {
+        stl_book.limit_order(i, Side::Buy, 1000 + (i % 500), 10);
+        stl_book.limit_order(i + 100000, Side::Sell, 1000 + (i % 500), 10);
+    }
 
     for(int i=0; i<N; ++i) {
         uint64_t s = timer.now();
-        stl_book.limit_order(10000+i, Side::Sell, 100, 1);
+        if (i % 2 == 0) {
+            stl_book.limit_order(200000+i, Side::Sell, 1000 + (i % 100), 1);
+        } else {
+            stl_book.limit_order(200000+i, Side::Buy, 900 + (i % 100), 1);
+        }
         uint64_t e = timer.now();
         stl_latencies.push_back(timer.to_nanoseconds(e - s));
     }

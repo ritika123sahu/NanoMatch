@@ -25,3 +25,5 @@ add_executable(nanomatch src/matching_engine.cpp src/order_book.cpp src/itch_par
 # Benchmarks
 add_executable(bench_latencies bench/bench_latencies.cpp src/order_book.cpp src/itch_parser.cpp)
 add_executable(bench_comparison bench/bench_comparison.cpp src/order_book.cpp src/itch_parser.cpp)
+add_executable(bench_baseline bench/bench_baseline.cpp src/order_book.cpp src/itch_parser.cpp)
+add_executable(bench_optimized bench/bench_optimized.cpp src/order_book.cpp src/itch_parser.cpp)
